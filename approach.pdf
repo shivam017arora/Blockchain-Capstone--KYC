@@ -1,0 +1,259 @@
+%PDF-1.3
+1 0 obj
+<< /Type /Catalog
+/Outlines 2 0 R
+/Pages 3 0 R >>
+endobj
+2 0 obj
+<< /Type /Outlines /Count 0 >>
+endobj
+3 0 obj
+<< /Type /Pages
+/Kids [6 0 R
+11 0 R
+13 0 R
+]
+/Count 3
+/Resources <<
+/ProcSet 4 0 R
+/Font << 
+/F1 8 0 R
+/F2 9 0 R
+/F3 10 0 R
+>>
+>>
+/MediaBox [0.000 0.000 595.280 841.890]
+ >>
+endobj
+4 0 obj
+[/PDF /Text ]
+endobj
+5 0 obj
+<<
+/Creator (DOMPDF)
+/CreationDate (D:20220628133810+00'00')
+/ModDate (D:20220628133810+00'00')
+>>
+endobj
+6 0 obj
+<< /Type /Page
+/Parent 3 0 R
+/Contents 7 0 R
+>>
+endobj
+7 0 obj
+<<
+/Length 3687 >>
+stream
+
+0.000 0.000 0.000 rg
+BT 34.016 768.985 Td /F1 24.0 Tf  [(KYC Contract)] TJ ET
+BT 34.016 735.797 Td /F2 12.0 Tf  [(Problem Proposed: KYC \(Know Your Customer\) is a service provided by financial institutions such as )] TJ ET
+BT 34.016 721.541 Td /F2 12.0 Tf  [(banks. There are both public and private sector banks managed by a central bank. These banks are banned by )] TJ ET
+BT 34.016 707.285 Td /F2 12.0 Tf  [(the central bank from adding any new customer and do any more customer KYCs as they see suspicious )] TJ ET
+BT 34.016 693.029 Td /F2 12.0 Tf  [(activities that need to be sorted out first. Despite this, the banks add new customers and do the KYC in the )] TJ ET
+BT 34.016 678.773 Td /F2 12.0 Tf  [(background.)] TJ ET
+BT 34.016 652.517 Td /F2 12.0 Tf  [(Solution Proposed: An immutable solution is needed where the central bank maintains a list of all the banks )] TJ ET
+BT 34.016 638.261 Td /F2 12.0 Tf  [(and tracks which banks are allowed to add new customers and perform KYC. It can also track which )] TJ ET
+BT 34.016 624.005 Td /F2 12.0 Tf  [(customer KYC is completed or pending along with customer details.)] TJ ET
+BT 34.016 597.749 Td /F2 12.0 Tf  [(Banks can also add the new customer if allowed and do the KYC of the customers.)] TJ ET
+BT 34.016 556.009 Td /F1 24.0 Tf  [(Approach)] TJ ET
+BT 34.016 522.821 Td /F2 12.0 Tf  [(My setup for the project:)] TJ ET
+BT 48.816 496.570 Td /F2 12.0 Tf  [(1.)] TJ ET
+BT 64.016 496.565 Td /F2 12.0 Tf  [(Understanding problem statement)] TJ ET
+BT 48.816 482.314 Td /F2 12.0 Tf  [(2.)] TJ ET
+BT 64.016 482.309 Td /F2 12.0 Tf  [(Correlating data structures and exception handling to use)] TJ ET
+BT 48.816 468.058 Td /F2 12.0 Tf  [(3.)] TJ ET
+BT 64.016 468.053 Td /F2 12.0 Tf  [(Implement smart contract in Solidity \(using Remix\))] TJ ET
+BT 48.816 453.802 Td /F2 12.0 Tf  [(4.)] TJ ET
+BT 64.016 453.797 Td /F2 12.0 Tf  [(Perform unit-testing on local blockchain or Ganache)] TJ ET
+BT 48.816 439.546 Td /F2 12.0 Tf  [(5.)] TJ ET
+BT 64.016 439.541 Td /F2 12.0 Tf  [(Deploy to test-net)] TJ ET
+BT 34.016 397.801 Td /F1 24.0 Tf  [(Smart Contract)] TJ ET
+BT 34.016 364.613 Td /F2 12.0 Tf  [(I am using the following data structures in my smart contract:)] TJ ET
+BT 34.016 339.802 Td /F3 12.0 Tf  [(// given Bank will have these properties)] TJ ET
+BT 34.016 327.352 Td /F3 12.0 Tf  [(    struct Bank {)] TJ ET
+BT 34.016 314.902 Td /F3 12.0 Tf  [(        string bankName;)] TJ ET
+BT 34.016 302.451 Td /F3 12.0 Tf  [(        address bankAddress;)] TJ ET
+BT 34.016 290.001 Td /F3 12.0 Tf  [(        uint256 kycCount;)] TJ ET
+BT 34.016 277.551 Td /F3 12.0 Tf  [(        bool canAddUser;)] TJ ET
+BT 34.016 265.101 Td /F3 12.0 Tf  [(        bool kycPrivilege;)] TJ ET
+BT 34.016 252.650 Td /F3 12.0 Tf  [(    })] TJ ET
+BT 34.016 240.200 Td /F3 12.0 Tf  [(// given Customer will have these properties)] TJ ET
+BT 34.016 227.750 Td /F3 12.0 Tf  [(struct Customer {)] TJ ET
+BT 34.016 215.300 Td /F3 12.0 Tf  [(    string customerName;)] TJ ET
+BT 34.016 202.849 Td /F3 12.0 Tf  [(    string customerData;)] TJ ET
+BT 34.016 190.399 Td /F3 12.0 Tf  [(    address customerBank;)] TJ ET
+BT 34.016 177.949 Td /F3 12.0 Tf  [(    bool kycStatus;)] TJ ET
+BT 34.016 165.499 Td /F3 12.0 Tf  [(})] TJ ET
+BT 34.016 153.048 Td /F3 12.0 Tf  [(// bank address => bank type)] TJ ET
+BT 34.016 140.598 Td /F3 12.0 Tf  [(mapping\(address => Bank\) public banks;)] TJ ET
+BT 34.016 128.148 Td /F3 12.0 Tf  [(// customer address => customer type)] TJ ET
+BT 34.016 115.698 Td /F3 12.0 Tf  [(mapping\(string => Customer\) public customers;)] TJ ET
+BT 34.016 89.803 Td /F2 12.0 Tf  [(NOTE: only admin can add banks and only banks can add customers to their bank)] TJ ET
+endstream
+endobj
+8 0 obj
+<< /Type /Font
+/Subtype /Type1
+/Name /F1
+/BaseFont /Times-Bold
+/Encoding /WinAnsiEncoding
+>>
+endobj
+9 0 obj
+<< /Type /Font
+/Subtype /Type1
+/Name /F2
+/BaseFont /Times-Roman
+/Encoding /WinAnsiEncoding
+>>
+endobj
+10 0 obj
+<< /Type /Font
+/Subtype /Type1
+/Name /F3
+/BaseFont /Courier
+/Encoding /WinAnsiEncoding
+>>
+endobj
+11 0 obj
+<< /Type /Page
+/Parent 3 0 R
+/Contents 12 0 R
+>>
+endobj
+12 0 obj
+<<
+/Length 4552 >>
+stream
+
+0.000 0.000 0.000 rg
+BT 34.016 768.985 Td /F1 24.0 Tf  [(Exception Handling)] TJ ET
+BT 48.816 735.802 Td /F2 12.0 Tf  [(1.)] TJ ET
+BT 64.016 735.797 Td /F2 12.0 Tf  [(OnlyOwner modifier by OpenZeppelin)] TJ ET
+BT 48.816 721.546 Td /F2 12.0 Tf  [(2.)] TJ ET
+BT 64.016 721.541 Td /F2 12.0 Tf  [(Checking if msg.sender == address of bank for bank functions)] TJ ET
+BT 34.016 695.285 Td /F2 12.0 Tf  [(NOTE: this is tested using brownie / pytest \(logs available below\))] TJ ET
+BT 34.016 653.545 Td /F1 24.0 Tf  [(Tests)] TJ ET
+BT 48.816 620.362 Td /F2 12.0 Tf  [(1.)] TJ ET
+BT 64.016 620.357 Td /F2 12.0 Tf  [(test_can_add_bank_to_blockchain: This tests that only owner can add a bank and whether the bank is )] TJ ET
+BT 64.016 606.101 Td /F2 12.0 Tf  [(added successfully)] TJ ET
+BT 48.816 591.850 Td /F2 12.0 Tf  [(2.)] TJ ET
+BT 64.016 591.845 Td /F2 12.0 Tf  [(test_can_block_bank_from_adding_user: This tests that whether blocking adding is working )] TJ ET
+BT 64.016 577.589 Td /F2 12.0 Tf  [(successfully)] TJ ET
+BT 48.816 563.338 Td /F2 12.0 Tf  [(3.)] TJ ET
+BT 64.016 563.333 Td /F2 12.0 Tf  [(test_can_block_bank_from_kyc_priviledge: This tests that whether blocking kyc is working )] TJ ET
+BT 64.016 549.077 Td /F2 12.0 Tf  [(successfully)] TJ ET
+BT 48.816 534.826 Td /F2 12.0 Tf  [(4.)] TJ ET
+BT 64.016 534.821 Td /F2 12.0 Tf  [(test_can_add_customer_to_bank: This tests that only bank can add a customer and can't add after )] TJ ET
+BT 64.016 520.565 Td /F2 12.0 Tf  [(blocking and whether customer is added successfully)] TJ ET
+BT 48.816 506.314 Td /F2 12.0 Tf  [(5.)] TJ ET
+BT 64.016 506.309 Td /F2 12.0 Tf  [(test_perform_kyc: This tests that status is changed after performing kyc and can only bank has )] TJ ET
+BT 64.016 492.053 Td /F2 12.0 Tf  [(permission for this)] TJ ET
+BT 34.016 450.313 Td /F1 24.0 Tf  [(Brownie Framework)] TJ ET
+BT 48.816 417.130 Td /F2 12.0 Tf  [(1.)] TJ ET
+BT 64.016 417.125 Td /F2 12.0 Tf  [(Deploying to Rinkeby)] TJ ET
+BT 34.016 375.385 Td /F1 24.0 Tf  [(Logs)] TJ ET
+BT 34.016 343.642 Td /F3 12.0 Tf  [(brownie run scripts/deploy.py --network rinkeby)] TJ ET
+BT 34.016 331.192 Td /F3 12.0 Tf  [(Brownie v1.18.1 - Python development framework for Ethereum)] TJ ET
+BT 34.016 318.742 Td /F3 12.0 Tf  [(Project is the active project.)] TJ ET
+BT 34.016 306.291 Td /F3 12.0 Tf  [(Running 'scripts/deploy.py::main'...)] TJ ET
+BT 34.016 293.841 Td /F3 12.0 Tf  [(Enter password for "shivam":)] TJ ET
+BT 34.016 281.391 Td /F3 12.0 Tf  [(Transaction sent: 0x6f1d34d2fa401f0b7bd254732e0237d7c56a1a208ed78ee915852597a0767cbc)] TJ ET
+BT 34.016 268.941 Td /F3 12.0 Tf  [(Gas price: 1.000000615 gwei Gas limit: 2027669 Nonce: 71)] TJ ET
+BT 34.016 256.490 Td /F3 12.0 Tf  [(KYC.constructor confirmed Block: 10931024 Gas used: 1843336 \(90.91%\))] TJ ET
+BT 34.016 244.040 Td /F3 12.0 Tf  [(KYC deployed at: 0x43226D915358da7B2432A22D38a1632fbB683284)] TJ ET
+BT 34.016 231.590 Td /F3 12.0 Tf  [(Contract address: 0x43226D915358da7B2432A22D38a1632fbB683284)] TJ ET
+BT 34.016 219.140 Td /F3 12.0 Tf  [(Enter password for "shivam":)] TJ ET
+BT 34.016 206.689 Td /F3 12.0 Tf  [(Adding bank to contract)] TJ ET
+BT 34.016 194.239 Td /F3 12.0 Tf  [(Transaction sent: 0x8a3cc360199e3fb2c773b0f0a150c9f068f0ca0a40c0990885d2e3a3d92753c7)] TJ ET
+BT 34.016 181.789 Td /F3 12.0 Tf  [(Gas price: 1.000000615 gwei Gas limit: 103557 Nonce: 72)] TJ ET
+BT 34.016 169.339 Td /F3 12.0 Tf  [(KYC.addNewBankToBlockchain confirmed Block: 10931025 Gas used: 94143 \(90.91%\))] TJ ET
+BT 34.016 156.888 Td /F3 12.0 Tf  [(KYC.addNewBankToBlockchain confirmed Block: 10931025 Gas used: 94143 \(90.91%\))] TJ ET
+BT 34.016 144.438 Td /F3 12.0 Tf  [(Bank added to contract)] TJ ET
+BT 34.016 131.988 Td /F3 12.0 Tf  [(Enter password for "shivam":)] TJ ET
+BT 34.016 119.538 Td /F3 12.0 Tf  [(Adding bank to contract)] TJ ET
+BT 34.016 107.087 Td /F3 12.0 Tf  [(Transaction sent: 0x257a079c8a3cc5bd967b7155b9942b6983f2ec641e8a79abd11dacd09a15e886)] TJ ET
+BT 34.016 94.637 Td /F3 12.0 Tf  [(Gas price: 1.000000616 gwei Gas limit: 45832 Nonce: 73)] TJ ET
+BT 34.016 82.187 Td /F3 12.0 Tf  [(KYC.addNewBankToBlockchain confirmed Block: 10931026 Gas used: 39480 \(86.14%\))] TJ ET
+BT 34.016 69.737 Td /F3 12.0 Tf  [(KYC.addNewBankToBlockchain confirmed Block: 10931026 Gas used: 39480 \(86.14%\))] TJ ET
+BT 34.016 57.287 Td /F3 12.0 Tf  [(Bank added to contract)] TJ ET
+BT 34.016 44.836 Td /F3 12.0 Tf  [(Adding customer to bank)] TJ ET
+BT 34.016 32.386 Td /F3 12.0 Tf  [(Transaction sent: 0x2e7269313a046563971a1c227717078d3603ad2cfca876f6c7039cc0731c6151)] TJ ET
+endstream
+endobj
+13 0 obj
+<< /Type /Page
+/Parent 3 0 R
+/Contents 14 0 R
+>>
+endobj
+14 0 obj
+<<
+/Length 3453 >>
+stream
+
+0.000 0.000 0.000 rg
+BT 34.016 797.914 Td /F3 12.0 Tf  [(Gas price: 1.000000616 gwei Gas limit: 138727 Nonce: 74)] TJ ET
+BT 34.016 785.464 Td /F3 12.0 Tf  [(KYC.addNewCustomerToBank confirmed Block: 10931027 Gas used: 123935 \(89.34%\))] TJ ET
+BT 34.016 773.014 Td /F3 12.0 Tf  [(KYC.addNewCustomerToBank confirmed Block: 10931027 Gas used: 123935 \(89.34%\))] TJ ET
+BT 34.016 760.563 Td /F3 12.0 Tf  [(Customer John added to bank: 0xA37a0eE21f5964B27fD577002Ed93e75d3357244)] TJ ET
+BT 34.016 748.113 Td /F3 12.0 Tf  [(Adding customer to bank)] TJ ET
+BT 34.016 735.663 Td /F3 12.0 Tf  [(Transaction sent: 0x4065c1de9234845b8509338d981729469b86a2e73f6dbbda2d405fca8200f80d)] TJ ET
+BT 34.016 723.213 Td /F3 12.0 Tf  [(Gas price: 1.000000616 gwei Gas limit: 119891 Nonce: 75)] TJ ET
+BT 34.016 710.762 Td /F3 12.0 Tf  [(KYC.addNewCustomerToBank confirmed Block: 10931028 Gas used: 106811 \(89.09%\))] TJ ET
+BT 34.016 698.312 Td /F3 12.0 Tf  [(KYC.addNewCustomerToBank confirmed Block: 10931028 Gas used: 106811 \(89.09%\))] TJ ET
+BT 34.016 685.862 Td /F3 12.0 Tf  [(Customer Bob added to bank: 0xA37a0eE21f5964B27fD577002Ed93e75d3357244)] TJ ET
+BT 34.016 673.412 Td /F3 12.0 Tf  [(KYC status of John: False)] TJ ET
+BT 34.016 660.961 Td /F3 12.0 Tf  [(KYC status of Bob: False)] TJ ET
+BT 34.016 648.511 Td /F3 12.0 Tf  [(Performing KYC of John on bank1)] TJ ET
+BT 34.016 636.061 Td /F3 12.0 Tf  [(Transaction sent: 0x70da944bc804c77b6f8fc6af0a3f3e5e45895d7d0ff39653e5828991a60584df)] TJ ET
+BT 34.016 623.611 Td /F3 12.0 Tf  [(Gas price: 1.000000615 gwei Gas limit: 45717 Nonce: 76)] TJ ET
+BT 34.016 611.160 Td /F3 12.0 Tf  [(KYC.performKycOfCustomer confirmed Block: 10931029 Gas used: 41561 \(90.91%\))] TJ ET
+BT 34.016 598.710 Td /F3 12.0 Tf  [(KYC status of John: False)] TJ ET
+BT 34.016 586.260 Td /F3 12.0 Tf  [(Performing KYC of Bob on bank2)] TJ ET
+BT 34.016 573.810 Td /F3 12.0 Tf  [(Transaction sent: 0xb559a9d0571a0873d5e6d23d7d5b19f71955b655745fb2c4c0fcf38bc1899401)] TJ ET
+BT 34.016 561.359 Td /F3 12.0 Tf  [(Gas price: 1.000000615 gwei Gas limit: 45703 Nonce: 77)] TJ ET
+BT 34.016 548.909 Td /F3 12.0 Tf  [(KYC.performKycOfCustomer confirmed Block: 10931030 Gas used: 41549 \(90.91%\))] TJ ET
+BT 34.016 536.459 Td /F3 12.0 Tf  [(KYC status of Bob: True)] TJ ET
+BT 48.816 510.569 Td /F2 12.0 Tf  [(1.)] TJ ET
+BT 64.016 510.564 Td /F2 12.0 Tf  [(Testing)] TJ ET
+BT 34.016 468.823 Td /F1 24.0 Tf  [(Logs)] TJ ET
+BT 34.016 437.081 Td /F3 12.0 Tf  [(========================================== test session starts ==========================================)] TJ ET
+BT 34.016 424.631 Td /F3 12.0 Tf  [(platform darwin -- Python 3.9.5, pytest-6.2.5, py-1.11.0, pluggy-1.0.0)] TJ ET
+BT 34.016 412.180 Td /F3 12.0 Tf  [(rootdir: /Users/shivamarora/Downloads/Projects/Freelance/Blockchain/project)] TJ ET
+BT 34.016 399.730 Td /F3 12.0 Tf  [(plugins: eth-brownie-1.18.1, forked-1.4.0, web3-5.27.0, xdist-1.34.0, hypothesis-6.27.3)] TJ ET
+BT 34.016 387.280 Td /F3 12.0 Tf  [(collected 5 items)] TJ ET
+BT 34.016 374.830 Td /F3 12.0 Tf  [(Launching 'ganache-cli --accounts 10 --hardfork istanbul --gasLimit 12000000 --mnemonic brownie --port 8545'...)] TJ ET
+BT 34.016 362.379 Td /F3 12.0 Tf  [(tests/test_kyc.py ..... [100%])] TJ ET
+BT 34.016 349.929 Td /F3 12.0 Tf  [(=========================================== 5 passed in 8.53s ===========================================)] TJ ET
+BT 34.016 337.479 Td /F3 12.0 Tf  [(Terminating local RPC client...)] TJ ET
+endstream
+endobj
+xref
+0 15
+0000000000 65535 f 
+0000000009 00000 n 
+0000000074 00000 n 
+0000000120 00000 n 
+0000000309 00000 n 
+0000000338 00000 n 
+0000000452 00000 n 
+0000000515 00000 n 
+0000004254 00000 n 
+0000004362 00000 n 
+0000004471 00000 n 
+0000004577 00000 n 
+0000004642 00000 n 
+0000009247 00000 n 
+0000009312 00000 n 
+trailer
+<<
+/Size 15
+/Root 1 0 R
+/Info 5 0 R
+>>
+startxref
+12818
+%%EOF
