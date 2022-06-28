@@ -15,6 +15,60 @@ It can also track which customer KYC is completed or pending along with customer
 
 Banks can also add the new customer if allowed and do the KYC of the customers.
 
+# Approach
+
+My setup for the project:
+
+1. Understanding problem statement
+2. Correlating data structures and exception handling to use
+3. Implement smart contract in Solidity (using Remix)
+4. Perform unit-testing on local blockchain or Ganache
+5. Deploy to test-net
+
+# Smart Contract
+
+I am using the following data structures in my smart contract:
+
+```
+// given Bank will have these properties
+    struct Bank {
+        string bankName;
+        address bankAddress;
+        uint256 kycCount;
+        bool canAddUser;
+        bool kycPrivilege;
+    }
+// given Customer will have these properties
+struct Customer {
+    string customerName;
+    string customerData;
+    address customerBank;
+    bool kycStatus;
+}
+
+// bank address => bank type
+mapping(address => Bank) public banks;
+// customer address => customer type
+mapping(string => Customer) public customers;
+```
+
+NOTE: only admin can add banks and only banks can add customers to their bank
+
+# Exception Handling
+
+1. OnlyOwner modifier by OpenZeppelin
+2. Checking if msg.sender == address of bank for bank functions
+
+NOTE: this is tested using brownie / pytest (logs available below)
+
+# Tests
+
+1. test_can_add_bank_to_blockchain: This tests that only owner can add a bank and whether the bank is added successfully
+2. test_can_block_bank_from_adding_user: This tests that whether blocking adding is working successfully
+3. test_can_block_bank_from_kyc_priviledge: This tests that whether blocking kyc is working successfully
+4. test_can_add_customer_to_bank: This tests that only bank can add a customer and can't add after blocking and whether customer is added successfully
+5. test_perform_kyc: This tests that status is changed after performing kyc and can only bank has permission for this
+
 # Brownie Framework
 
 1. Deploying to Rinkeby
